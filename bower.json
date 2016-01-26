@@ -1,0 +1,22 @@
+{
+  "name": "laravel.loc",
+  "description": "",
+  "main": "",
+  "authors": [
+    "pyotor <pyotor.kuzmin@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Hovik123/laravel-angularjs",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.9",
+    "bootstrap": "~3.3.6"
+  }
+}

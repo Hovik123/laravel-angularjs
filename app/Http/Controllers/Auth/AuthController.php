@@ -27,7 +27,10 @@ class AuthController extends Controller
      * Where to redirect users after login / registration.
      *
      * @var string
+     *
      */
+    protected $redirectPath = '/dashboard';
+    protected $loginPath = '/login';
     protected $redirectTo = '/home';
 
     /**
@@ -69,4 +72,5 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
 }
