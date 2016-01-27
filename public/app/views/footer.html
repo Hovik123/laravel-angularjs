@@ -1,0 +1,90 @@
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Add Post</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="Title">Title</label>
+                        <input type="text" class="form-control" id="Title" placeholder="Title" ng-model="addpost.title">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <input type="text" class="form-control" id="description" placeholder="Description" ng-model="addpost.description">
+                    </div>
+                    <div class="form-group">
+                        <label for="textarea">Content</label>
+                        <textarea name="textarea" id="textarea" cols="30" rows="10" class="form-control" placeholder="Content" ng-model="addpost.content"></textarea>
+                    </div>
+                    <div class="checkbox">
+                        <label >
+
+                            <input type="checkbox" ng-model="addpost.published"> Publish
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" ng-click="add()">Add</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--MODAL EDIT-->
+<div id="EditModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Edit {{editpost.title}}</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="TitleEdit">Title</label>
+                        <input type="text" class="form-control" id="TitleEdit" placeholder="Title" value="{{editpost.title}}" ng-model="editpost.title">
+                    </div>
+                    <div class="form-group">
+                        <label for="descriptionEdit">Description</label>
+                        <input type="text" ng-model="editpost.description" class="form-control" id="descriptionEdit" placeholder="Description" value="{{editpost.description}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="textareaEdit">Content</label>
+                        <textarea name="textarea" id="textareaEdit" ng-model="editpost.content" cols="30" rows="10" class="form-control" placeholder="Content">{{editpost.content}}</textarea>
+                    </div>
+                    <div class="checkbox">
+                        <label ng-if="editpost.published==1" ng-model="editpost.published">
+
+                            <input type="checkbox" checked> Publish
+                        </label>
+                        <label ng-if="editpost.published==0" ng-model="editpost.published">
+
+                            <input type="checkbox"> Publish
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div ng-show="" class="alert alert-success">Post updated successfully</div>
+                <button type="button" class="btn btn-success" ng-click="update(editpost.id)">Update</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<footer class="footer navbar-fixed-bottom">
+    <div class="container">
+        <p class="text-muted">Copyright 2016</p>
+    </div>
+</footer>

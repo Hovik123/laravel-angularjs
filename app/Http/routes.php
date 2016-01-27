@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'PostController@index');
+Route::get('/', 'PostController@run');
 // Authentication routes...
 
 
@@ -27,14 +27,14 @@ Route::get('/', 'PostController@index');
 */
 
 Route::group(['middleware' => ['web']], function () {
-    Route::get('auth/login', 'Auth\AuthController@getLogin');
-    Route::post('auth/login', 'Auth\AuthController@postLogin');
-    Route::get('auth/logout', 'Auth\AuthController@getLogout');
-
-// Registration routes...
-    Route::get('auth/register', 'Auth\AuthController@getRegister');
-    Route::post('auth/register', 'Auth\AuthController@postRegister');
-
-    // Post routs
-    //Route::get('/', 'Auth\AuthController@getRegister');
+    //
+});
+//Post API Routes
+Route::group(array('prefix' => 'api/v1'), function()
+{
+    Route::post('posts', 'PostController@index');
+    Route::post('post/get/{id}', 'PostController@getById');
+    Route::post('post/add', 'PostController@add');
+    Route::post('post/update/{id}', 'PostController@update');
+    Route::post('post/delete/{id}', 'PostController@delete');
 });
