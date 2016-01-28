@@ -16,14 +16,16 @@
                     </div>
                     <div class="form-group">
                         <label for="description">Description</label>
-                        <input type="text" class="form-control" id="description" placeholder="Description" ng-model="addpost.description">
+                        <input type="text" class="form-control" id="description" placeholder="Description"
+                               ng-model="addpost.description">
                     </div>
                     <div class="form-group">
                         <label for="textarea">Content</label>
-                        <textarea name="textarea" id="textarea" cols="30" rows="10" class="form-control" placeholder="Content" ng-model="addpost.content"></textarea>
+                        <textarea name="textarea" id="textarea" cols="30" rows="10" class="form-control"
+                                  placeholder="Content" ng-model="addpost.content"></textarea>
                     </div>
                     <div class="checkbox">
-                        <label >
+                        <label>
 
                             <input type="checkbox" ng-model="addpost.published"> Publish
                         </label>
@@ -39,7 +41,7 @@
     </div>
 </div>
 <!--MODAL EDIT-->
-<div id="EditModal" class="modal fade" role="dialog">
+<div id="EditModal" class="modal fade" role="dialog" ng-hide="showModal">
     <div class="modal-dialog">
 
         <!-- Modal content-->
@@ -52,24 +54,23 @@
                 <form>
                     <div class="form-group">
                         <label for="TitleEdit">Title</label>
-                        <input type="text" class="form-control" id="TitleEdit" placeholder="Title" value="{{editpost.title}}" ng-model="editpost.title">
+                        <input type="text" class="form-control" id="TitleEdit" required="required" placeholder="Title"
+                               value="{{editpost.title}}" ng-model="editpost.title">
                     </div>
                     <div class="form-group">
                         <label for="descriptionEdit">Description</label>
-                        <input type="text" ng-model="editpost.description" class="form-control" id="descriptionEdit" placeholder="Description" value="{{editpost.description}}">
+                        <input type="text" ng-model="editpost.description" class="form-control" required="required"
+                               id="descriptionEdit" placeholder="Description" value="{{editpost.description}}">
                     </div>
                     <div class="form-group">
                         <label for="textareaEdit">Content</label>
-                        <textarea name="textarea" id="textareaEdit" ng-model="editpost.content" cols="30" rows="10" class="form-control" placeholder="Content">{{editpost.content}}</textarea>
+                        <textarea name="textarea" id="textareaEdit" ng-model="editpost.content" cols="30" rows="10"
+                                  required="required" class="form-control"
+                                  placeholder="Content">{{editpost.content}}</textarea>
                     </div>
                     <div class="checkbox">
-                        <label ng-if="editpost.published==1" ng-model="editpost.published">
-
-                            <input type="checkbox" checked> Publish
-                        </label>
-                        <label ng-if="editpost.published==0" ng-model="editpost.published">
-
-                            <input type="checkbox"> Publish
+                        <label>
+                            <input type="checkbox" ng-model="editpost.published" ng-true-value="'1'" ng-false-value="'0'"> Publish
                         </label>
                     </div>
                 </form>
@@ -83,7 +84,7 @@
 
     </div>
 </div>
-<footer class="footer navbar-fixed-bottom">
+<footer class="footer">
     <div class="container">
         <p class="text-muted">Copyright 2016</p>
     </div>

@@ -14,6 +14,7 @@
 <script src="./assets/vendor/angular-route/angular-route.js" type="text/javascript"></script>
 <script src="./assets/vendor/jquery/dist/jquery.min.js" type="text/javascript"></script>
 <script src="./assets/vendor/bootstrap/dist/js/bootstrap.js" type="text/javascript"></script>
+<script src="./assets/vendor/angular-bootstrap/ui-bootstrap.min.js" type="text/javascript"></script>
 <script src="./app/app.js" type="text/javascript"></script>
 <script src="./assets/js/main.js" type="text/javascript"></script>
 </body>

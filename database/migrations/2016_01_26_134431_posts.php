@@ -14,7 +14,7 @@ class Posts extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title')->unique();
+            $table->string('title');
             $table->text('description');
             $table->text('content');
             $table->boolean('published')->default(false);

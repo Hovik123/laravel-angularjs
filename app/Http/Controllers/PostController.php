@@ -102,18 +102,18 @@ class PostController extends Controller
             $statusCode = 200;
 
             $response = [];
-            $message="";
-
-            if (DB::table('posts')
+            $message = "";
+            $data = json_decode(file_get_contents('php://input'));
+            $title = $data->title;
+            $description = $data->description;
+            $content = $data->content;
+            $published = $data->published;
+            DB::table('posts')
                 ->where('id', $id)
-                ->update(['title' => $_POST['title'],'description'=>$_POST['description'],'content'=>$_POST['content'],'published'=>$_POST['published']])
-            ) {
-                $statusCode = 200;
-                $message = "Post updated successfully";
-            } else {
-                $message = "Post cannot be updated";
-                $statusCode = 404;
-            }
+                ->update(['title' => $title, 'description' => $description, 'content' => $content, 'published' => $published]);
+            $statusCode = 200;
+            $message = "Post updated successfully";
+            $response['posts'] = Posts::all();
 
         } catch (Exeption $e) {
             $statusCode = 400;
@@ -140,7 +140,7 @@ class PostController extends Controller
             if (Posts::where(["id" => $id])->delete()) {
                 $statusCode = 200;
                 $message = "Post deleted success";
-                $response['posts']=Posts::all();
+                $response['posts'] = Posts::all();
             } else {
                 $message = "Post not found";
                 $statusCode = 404;
@@ -164,13 +164,14 @@ class PostController extends Controller
         $response = [];
         $message = "Inserted ok";
         $statusCode = 200;
-        dd($_POST);
-        if (!empty($_POST)) {
+        $data = json_decode(file_get_contents('php://input'));
+
+        if (!empty($data)) {
             try {
-                $title = $_POST['title'];
-                $description = $_POST['description'];
-                $content = $_POST['content'];
-                $published = $_POST['published'];
+                $title = $data->title;
+                $description = $data->description;
+                $content = $data->content;
+                $published = $data->published;
                 DB::table('posts')->insert([
                     [
                         'title' => $title,
@@ -179,6 +180,7 @@ class PostController extends Controller
                         'published' => $published
                     ],
                 ]);
+                $response['posts'] = Posts::all();
                 $statusCode = 200;
             } catch (Exception $e) {
                 $message = $e->getMessage();
